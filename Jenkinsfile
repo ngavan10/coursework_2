@@ -3,11 +3,7 @@ pipeline{
         stages {
                 stage ('Build Image') 
 		{
-		  agent any
-		  def app
-			steps{
-				app = docker.build("ngavan10/coursework_2")	
-			}
+		echo "build"
 
                         
                 }
