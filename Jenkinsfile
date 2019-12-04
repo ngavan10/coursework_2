@@ -6,7 +6,7 @@ pipeline{
 			agent any
 			environment {
     				registry = "ngavan10/coursework_2"
-    				registryCredential = ‘docker-hub-credentials’
+    				registryCredential = ‘dockerhubcredentials’
   			}
 		steps{
 			script {
