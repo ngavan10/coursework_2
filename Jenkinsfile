@@ -34,12 +34,13 @@ pipeline{
 		}
 		stage ('Push Image')	
 		{
+			agent any
 			steps
 			{
 				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials')
 			 	{
-			   		app.push("{env.BUILD_NUMBER}")
-			   		app.push("latest")
+			   		def app.push("{env.BUILD_NUMBER}")
+			   		def app.push("latest")
 			 	}
 			}
 		}
