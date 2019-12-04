@@ -4,6 +4,9 @@ pipeline{
         stages {
                 stage ('Building Image') 
 		{
+			steps{
+				docker.build("ngavan10/coursework_2")
+			}
 		
                         
                 }
