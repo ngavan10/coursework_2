@@ -3,8 +3,9 @@ pipeline{
         stages {
                 stage ('Build Image') 
 		{
+			steps{
 		echo "build"
-
+			}
                         
                 }
                 stage ('Sonarqube') 
