@@ -1,11 +1,18 @@
 pipeline{
         agent any
         stages {
-                stage ('Build Image') 
+                stage ('Building Image') 
 		{
-			steps{
-		echo "build"
-			}
+			agent any
+			environment {
+    				registry = "ngavan10/coursework_2"
+    				registryCredential = ‘docker-hub-credentials’
+  			}
+		steps{
+			script {
+          			docker.build registry + ":$BUILD_NUMBER"
+        		}
+		}
                         
                 }
                 stage ('Sonarqube') 
