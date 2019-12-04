@@ -29,7 +29,10 @@ pipeline{
 			agent any
 			steps 
 			{
-				def app = docker.build("ngavan10/coursework_2")
+				script
+				{
+					def app = docker.build("ngavan10/coursework_2")
+				}
 			}
 		}
 		stage ('Push Image')	
@@ -37,11 +40,13 @@ pipeline{
 			agent any
 			steps
 			{
+				script{
 				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials')
 			 	{
 			   		def app.push("{env.BUILD_NUMBER}")
 			   		def app.push("latest")
 			 	}
+				}
 			}
 		}
 				
