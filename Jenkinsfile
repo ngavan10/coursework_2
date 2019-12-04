@@ -3,9 +3,8 @@ pipeline{
         stages {
                 stage ('Build Image') 
 		{
-			def app
-                	
-                        	app = docker.build("ngavan10/coursework_2")
+
+                        	def app = docker.build("ngavan10/coursework_2")
                         
                 }
                 stage ('Sonarqube') 
