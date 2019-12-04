@@ -1,6 +1,9 @@
 pipeline{
+	environment{
+		dockerImage = ''
+	}
         agent any
-	def dockerImage = ''
+	
         stages {
                 stage ('Building Image') 
 		{
