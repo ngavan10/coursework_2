@@ -6,10 +6,17 @@ pipeline{
                                 echo 'Building'
                         }
                 }
-                stage ('Test') {
+                stage ('Sonarqube') {
+			environment {
+			scannerHome = tool 'SonarQubeScanner'
+			}
                         steps {
-                                echo 'Testing'
+                            withSonarQubeENV('sonarqube'){
+				sh "${scannerHome}/bin/sonar-scanner"
                         }
+			timeout(time: 10, unit: 'MINUTES') {
+				waitForQualityGate abortPipeline: ture
+			}
                   
                 }
                 
