@@ -12,6 +12,17 @@ pipeline{
 		
                         
                 }
+		stage ('Push Image')
+		{
+			steps{
+				script{
+					docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+            				push("${env.BUILD_NUMBER}")
+            				push("latest")
+        			}
+				}
+			}
+		}
                 stage ('Sonarqube') 
 		{
 			agent any
