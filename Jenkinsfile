@@ -5,7 +5,9 @@ pipeline{
                 stage ('Building Image') 
 		{
 			steps{
-				sh "docker.build("ngavan10/coursework_2")"
+				scripts{
+				docker.build("ngavan10/coursework_2")
+				}
 			}
 		
                         
