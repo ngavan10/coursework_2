@@ -7,6 +7,7 @@ pipeline{
                         }
                 }
                 stage ('Sonarqube') {
+			agent any
 			environment {
 			scannerHome = tool 'SonarQubeScanner'
 			}
@@ -14,9 +15,6 @@ pipeline{
                             withSonarQubeEnv('sonarqube'){
 				sh "${scannerHome}/bin/sonar-scanner"
                         }
-			timeout(time: 10, unit: 'MINUTES') {
-				waitForQualityGate abortPipeline: ture
-			}
                   
                 }
 		}
