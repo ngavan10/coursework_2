@@ -43,8 +43,8 @@ pipeline{
 				script{
 				docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials')
 			 	{
-			   		def app.push("${env.BUILD_NUMBER}")
-			   		def app.push("latest")
+			   		def app = app.push("${env.BUILD_NUMBER}")
+			   		def app = app.push("latest")
 			 	}
 				}
 			}
