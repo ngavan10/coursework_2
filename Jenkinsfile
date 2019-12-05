@@ -26,6 +26,14 @@ pipeline{
 				}
 			}
 		}
+		stage ('Create Prod VM')
+		{
+			steps{
+				script{
+					sh "ansible-playbook vm_create.yml"
+				}
+			}
+		}
                 stage ('Sonarqube') 
 		{
 			agent any
