@@ -30,10 +30,9 @@ pipeline{
 		{
 			steps{
 				script{
-					insideAnsibleContainer{
 						
-					sh "./ansible-playbook vm_create.yml"
-					}
+					sh"ansible-playbook vm_create.yml"
+					
 				}
 			}
 		}
