@@ -31,7 +31,7 @@ pipeline{
 			steps{
 				script{
 						
-					sh"ansible-playbook vm_create.yml"
+					sh "ansible-playbook -i vm_create.yml"
 					
 				}
 			}
