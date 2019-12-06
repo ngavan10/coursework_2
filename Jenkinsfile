@@ -26,6 +26,15 @@ pipeline{
 				}
 			}
 		}
+		stage ('Deploy Container')
+		{
+			agent any
+			steps{
+				script{
+					sh "kubectl get nodes"
+				}
+			}
+		}
                 stage ('Sonarqube') 
 		{
 			agent any
