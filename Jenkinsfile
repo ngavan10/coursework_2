@@ -31,7 +31,7 @@ pipeline{
 			agent any
 			steps{
 					
-					sshScript remote: remote, script: 'kubectl get nodes'
+					sshScript remote: script: 'kubectl get nodes'
 				
 			}
 		}
