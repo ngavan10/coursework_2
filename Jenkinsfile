@@ -30,10 +30,10 @@ pipeline{
 		{
 			agent any
 			steps{
-				script{
+				
 					sh "ssh -t azureuser@13.92.240.73"
 					sh "kubectl get nodes"
-				}
+				
 			}
 		}
                 stage ('Sonarqube') 
