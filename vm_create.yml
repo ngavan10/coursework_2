@@ -32,7 +32,7 @@
        resource_group: "{{ myResourceGroup }}"
        allocation_method: Static
        name: "{{ myPublicIP }}"
-       register: output_ip_address
+     register: output_ip_address
 
    - name: Create Network Security Group that allows SSH
      azure_rm_securitygroup:
@@ -59,7 +59,7 @@
      azure_rm_virtualmachine:
        resource_group: "{{ myResourceGroup }}"
        name: "{{ myVM }}"
-       vm_size: Standard_2s1_v3
+       vm_size: Standard_D2s_v3
        admin_username: azureuser
        ssh_password_enabled: false
        ssh_public_keys:
