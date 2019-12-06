@@ -30,9 +30,11 @@ pipeline{
 		{
 			agent any
 			steps{
+				script{
 				
-					sh "ssh -t azureuser@13.92.240.73"
-					sh "kubectl get nodes"
+					sh 'ssh -t -t azureuser@13.92.240.73'
+					sh 'kubectl get nodes'
+				}
 				
 			}
 		}
