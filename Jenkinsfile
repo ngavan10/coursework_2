@@ -29,8 +29,11 @@ pipeline{
 		stage ('Create Prod VM')
 		{
 			steps{
+				script{
+					ansible-playbook -i vm_create.yml
+				}
 	
-					sh "ansible-playbook -i vm_create.yml"
+					
 
 			}
 		}
