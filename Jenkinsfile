@@ -32,7 +32,7 @@ pipeline{
 			steps{
 				sshagent(['ansible-node']) 
 				{
-					sh " ssh -t -t azureuser@13.92.240.73 -o StrictHostKeyChecking=no"
+					
 					script{
 						sh "ssh azureuser@13.92.240.73 kubectl delete deploy/coursework_2"
 						sh "ssh azureuser@13.92.240.73 kubectl create deployment coursework_2 --image-ngavan10/coursework_2"
