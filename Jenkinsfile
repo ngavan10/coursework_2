@@ -26,6 +26,12 @@ pipeline{
 				}
 			}
 		}
+		stage ('Deploy container')
+		{
+			steps{
+				build 'cw2'
+			}
+		}
 
                 stage ('Sonarqube') 
 		{
