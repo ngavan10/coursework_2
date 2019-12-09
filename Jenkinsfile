@@ -30,8 +30,15 @@ pipeline{
 		{
 			agent any
 			steps{
-				script{
-					sshScript remote: script: 'kubectl get nodes'
+				sshagent(['ansible-node']) 
+				{
+					script{
+						sh "ssh azureuser@13.92.240.73 kubectl delete deploy/coursework_2"
+						sh "ssh azureuser@13.92.240.73 kubectl create deployment coursework_2 --image-ngavan10/coursework_2"
+						sh "ssh azureuser@13.92.240.73 kubectl get deployments"
+						sh "ssh azureuser@13.92.240.73 kubectl get pods"
+						
+					}
 				}
 				
 			}
