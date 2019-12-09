@@ -30,8 +30,7 @@ pipeline{
 		{
 			agent any
 			steps{
-				sshagent(['ansible-node']) 
-				{
+				
 					
 					script{
 						sh "ssh azureuser@13.92.240.73 kubectl delete deploy/coursework_2"
@@ -40,7 +39,7 @@ pipeline{
 						sh "ssh azureuser@13.92.240.73 kubectl get pods"
 						
 					}
-				}
+				
 				
 			}
 		}
