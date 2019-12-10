@@ -1,17 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cw2
+  name: cw2-deployment
+  labels:
+    app: ngavan10/cw2
 spec:
+  replicas: 3
   selector:
     matchLabels:
-      app: cw2
+      app: ngavan10/cw2
   template:
     metadata:
       labels:
-        app: cw2
+        app: ngavan10/cw2
     spec:
       containers:
-      - name: cw2
-        image: ngavan10/cw2:1.0
-      
+      - name: nginx
+        image: nginx:1.7.9
+       
+
