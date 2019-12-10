@@ -10,6 +10,7 @@ pipeline{
 			steps{
 				script{
 				dockerImage = docker.build("ngavan10/cw2:1.0")
+					echo "Building Image"
 				}
 			}
 		
@@ -22,6 +23,7 @@ pipeline{
 					docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             				dockerImage.push("${env.BUILD_NUMBER}")
             				dockerImage.push("latest")
+						echo "Push Image"
         			}
 				}
 			}
@@ -30,6 +32,7 @@ pipeline{
 		{
 			steps{
 				build "cw2"
+				echo "Deploy To Kubernetes"
 			}
 		}
 
@@ -46,6 +49,7 @@ pipeline{
 				{
 					sh "${scannerHome}/bin/sonar-scanner"
                         	}
+				echo "Testing code"
                   
                 	}
 		}
