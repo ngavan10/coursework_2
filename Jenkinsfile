@@ -9,7 +9,7 @@ pipeline{
 		{
 			steps{
 				script{
-				dockerImage = docker.build("ngavan10/coursework_2")
+				dockerImage = docker.build("ngavan10/cw2:1.0")
 				}
 			}
 		
