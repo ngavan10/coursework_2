@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: cw2
 spec:
-  replicas: 4
   selector:
     matchLabels:
       app: cw2
