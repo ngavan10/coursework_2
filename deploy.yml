@@ -15,5 +15,5 @@ spec:
       containers:
       - name: cw2
         image: ngavan10/cw2:1.0
-	ports:
-	- containerPort: 80  
+      ports:
+      - containerPort: 80  
