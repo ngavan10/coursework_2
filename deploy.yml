@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cw2
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: cw2
+  template:
+    metadata:
+      labels:
+        app: cw2
+    spec:
+      containers:
+      - name: cw2
+        image: ngavan10/cw2:1.0
+	ports:
+	- containerPort: 80  
