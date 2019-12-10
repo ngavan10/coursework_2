@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: cw2
+spec:
+   containers:
+   - name: cw2
+     image: ngavan10/cw2
+     ports:
+     -  containerPort: 80
