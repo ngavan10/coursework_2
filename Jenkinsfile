@@ -32,9 +32,9 @@ pipeline{
 				sshagent(['ansible-node']) {
 					script{
 							
-						sh "ssh -t -t azureuser@13.92.240.73 kubectl create deployment coursework_2 --image=ngavan10/coursework_2"
-						sh "ssh -t -t azureuser@13.92.240.73 kubectl get deployments"
-						sh "ssh -t -t azureuser@13.92.240.73 kubectl get pods"
+						sh "kubectl create deployment coursework_2 --image=ngavan10/coursework_2"
+						sh "kubectl get deployments"
+						sh "kubectl get pods"
 					}
 				}
 			}
