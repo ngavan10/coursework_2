@@ -29,14 +29,7 @@ pipeline{
 		stage ('Deploy container')
 		{
 			steps{
-				sshagent(['ansible-node']) {
-					script{
-							
-						sh "kubectl create deployment coursework_2 --image=ngavan10/coursework_2"
-						sh "kubectl get deployments"
-						sh "kubectl get pods"
-					}
-				}
+				build "cw2"
 			}
 		}
 
