@@ -31,11 +31,24 @@ pipeline{
 		stage ('Deploy container')
 		{
 			steps{
-				build "cw2"
+				build "Deploy Container"
 				echo "Deploy To Kubernetes"
 			}
 		}
-
+                stage ('Scale Application')
+                {
+                        steps{
+                                build "Scale"
+                                echo "Scale Application"
+                        }
+                }
+                stage ('Rolling Updates')
+                {
+                        steps{
+                                build "Rolling updates"
+                                echo "Rolling Updates"
+                        }
+                }
                 stage ('Sonarqube') 
 		{
 			agent any
@@ -53,6 +66,13 @@ pipeline{
                   
                 	}
 		}
+                stage ('Clean Up')
+                {
+                        steps{
+                                build "Clean Up"
+                                echo "Clean Up"
+                        }
+                }
       
 	
 				
