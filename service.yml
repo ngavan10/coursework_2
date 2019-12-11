@@ -3,14 +3,12 @@ kind: Service
 metadata:
    name: cw2
    labels:
-      k8s-app: cw2
+      run: cw2
 spec:
    type: NodePort
    ports:
    - name: http
-     port: 3000
+     port: 80
      protocol: TCP
-     targetPort: 3000
    selector:
-     k8s-app: cw2
-     component: nodejs
+     run: cw2
