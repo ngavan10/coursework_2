@@ -66,13 +66,7 @@ pipeline{
                   
                 	}
 		}
-                stage ('Clean Up')
-                {
-                        steps{
-                                build "Clean Up"
-                                echo "Clean Up"
-                        }
-                }
+
       
 	
 				
